@@ -13,7 +13,7 @@ return {
 	{ "junegunn/fzf.vim", enabled = not in_vscode },
 	{
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.1',
+		tag = '0.1.3',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		vscode = true,
 		opts = function()
