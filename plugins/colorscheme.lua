@@ -6,5 +6,4 @@ return {
         priority = 1000,
         vscode = false,
     },
-    
 }
