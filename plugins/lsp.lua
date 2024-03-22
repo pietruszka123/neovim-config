@@ -42,16 +42,22 @@ return {
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
         config = function()
-            local lsp = require('lsp-zero').preset({})
+            local lsp = require('lsp-zero')
 
             lsp.preset("recommended")
 
             lsp.ensure_installed({
-                "tsserver",
-                "eslint",
+        --        "tsserver",
+          --      "eslint",
                 "lua_ls",
-                "rust_analyzer"
+      --          "rust_analyzer"
             })
+
+	
+	    -- Mason Config
+	    require('mason').setup({})
+	    require('mason-lspconfig').setup({ensure_installed={},handlers={lsp.default_setup,}})
+
 
             lsp.on_attach(function(client, bufnr)
                 lsp.default_keymaps({ buffer = bufnr })
