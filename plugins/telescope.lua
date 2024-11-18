@@ -1,13 +1,3 @@
--- local status, builtin = pcall(require, 'telescope.builtin')
--- if status then
--- 	vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
--- 	vim.keymap.set('n', '<C-p>', builtin.git_files, {})
--- 	vim.keymap.set('n', '<leader>ps', function()
--- 		builtin.grep_string({ search = vim.fn.input("Grep > ") })
--- 	end, {})
--- end
-
-
 return {
 	{ "junegunn/fzf",     enabled = not in_vscode },
 	{ "junegunn/fzf.vim", enabled = not in_vscode },
