@@ -9,4 +9,12 @@ return {
 		version = "v2.*"
 	},
 	{ 'saadparwaiz1/cmp_luasnip' },
-	{ 'hrsh7th/nvim-cmp' } }
+	{ 'hrsh7th/nvim-cmp' },
+	{
+		'saecki/crates.nvim',
+		tag = 'stable',
+		config = function()
+			require('crates').setup()
+		end,
+	}
+}

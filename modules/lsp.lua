@@ -4,6 +4,10 @@ local wk = require("which-key")
 -- This will avoid an annoying layout shift in the screen
 vim.opt.signcolumn = 'yes'
 
+
+vim.lsp.inlay_hint.enable(true)
+
+
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
@@ -66,16 +70,19 @@ cmp.setup({
 -- Language Servers
 require('lspconfig').lua_ls.setup({})
 require('lspconfig').nil_ls.setup({
-	settings = {
-		['nil'] = {
-			formatting = {
-
-				command = { "nixfmt" }
-			}
-		},
-	}
+	-- settings = {
+	-- 	['nil'] = {
+	-- 		formatting = {
+	--
+	-- 			command = { "nixfmt" }
+	-- 		}
+	-- 	},
+	-- }
 
 })
+require'lspconfig'.nixd.setup{}
+
+
 require 'lspconfig'.gopls.setup({})
 
 
@@ -88,3 +95,17 @@ require 'lspconfig'.html.setup {
 
 require 'lspconfig'.biome.setup {}
 require 'lspconfig'.hyprls.setup {}
+require 'lspconfig'.rust_analyzer.setup {}
+
+
+require("crates").setup {
+	lsp = {
+		enabled = true,
+		on_attach = function(client, bufnr)
+			-- the same on_attach function as for your other lsp's
+		end,
+		actions = true,
+		completion = true,
+		hover = true,
+	}
+}
