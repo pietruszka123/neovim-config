@@ -2,9 +2,21 @@ return {
 	{ "junegunn/fzf",     enabled = not in_vscode },
 	{ "junegunn/fzf.vim", enabled = not in_vscode },
 	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		enabled = not in_vscode
+	},
+	{
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.3',
 		dependencies = { 'nvim-lua/plenary.nvim' },
+		extensions = {
+			file_browser = {
+				theme = "ivy",
+				-- disables netrw and use telescope-file-browser in its place
+				hijack_netrw = true,
+			},
+		},
 		enabled = not in_vscode,
 		opts = function()
 			local builtin = require('telescope.builtin')
@@ -20,4 +32,6 @@ return {
 				builtin.grep_string({ search = vim.fn.input("Grep > ") })
 			end, {})
 		end,
-	}, { "nvim-lua/plenary.nvim", enabled = not in_vscode }, }
+	},
+	{ "nvim-lua/plenary.nvim", enabled = not in_vscode },
+}

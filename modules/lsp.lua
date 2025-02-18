@@ -70,14 +70,14 @@ cmp.setup({
 -- Language Servers
 require('lspconfig').lua_ls.setup({})
 require('lspconfig').nil_ls.setup({
-	-- settings = {
-	-- 	['nil'] = {
-	-- 		formatting = {
-	--
-	-- 			command = { "nixfmt" }
-	-- 		}
-	-- 	},
-	-- }
+	settings = {
+		['nil'] = {
+			formatting = {
+
+				command = { "nixfmt" }
+			}
+		},
+	}
 
 })
 require'lspconfig'.nixd.setup{}

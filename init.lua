@@ -1,6 +1,7 @@
-require("pietruszka123.remap")
 require("pietruszka123.lazy")
+require("pietruszka123.remap")
 require("pietruszka123.modules.lsp")
+
 print("Gami to Furras")
 
 vim.o.termguicolors = true
